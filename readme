@@ -1,0 +1,1 @@
+pip install numpy torch torchvision tqdm scikit-learn pymysql transformers pynvml bs4 selenium xlrd pandas

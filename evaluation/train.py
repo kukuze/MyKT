@@ -14,6 +14,7 @@ def train(model, arg):
     logging.info('loading dataset')
     # 获取训练集和测试集
     data, _ = split_user()
+    users = list(data)
     optimizer = torch.optim.Adam(model.parameters())
     start_epoch = load_latest_model(model, Constants.MODEL_SNAPSHOT_PATH, arg)
     for epoch in range(start_epoch, Constants.EPOCH):
@@ -24,8 +25,6 @@ def train(model, arg):
         total_mae = 0
         total_acc = 0
         total_seq_cnt = 0
-
-        users = list(data)
         random.shuffle(users)
         seq_cnt = len(users)
 
